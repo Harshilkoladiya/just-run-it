@@ -80,6 +80,67 @@ function SipContent() {
   );
 }
 
+function MfContent() {
+  return (
+    <>
+      <H>What is a Mutual Fund?</H>
+      <P>
+        A Mutual Fund represents a financial instrument that aggregates capital from numerous
+        investors to establish a diversified portfolio comprising securities such as equities,
+        fixed-income instruments, or money market instruments.
+      </P>
+      <P>
+        Rather than acquiring individual equity shares in separate enterprises, investors purchase
+        "units" representing their stake in the mutual fund. Qualified investment professionals
+        subsequently manage the analytical research, investment strategy, and portfolio
+        transactions associated with these consolidated assets on behalf of the investors.
+      </P>
+      <p className="mt-6 text-lg font-semibold text-foreground">Operational Framework</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Capital Aggregation">
+          Numerous individual investors contribute funds into a unified investment pool
+          administered by an Asset Management Company (AMC).
+        </B>
+        <B label="Expert Fund Administration">
+          Seasoned investment managers examine market conditions, evaluate corporate entities, and
+          distribute the aggregated capital across various financial instruments in accordance
+          with the fund's stated objective (such as capital appreciation, income generation, or
+          asset preservation).
+        </B>
+        <B label="Unit Distribution & Net Asset Value">
+          Your capital acquisition results in fund units. The valuation of each unit, termed the
+          Net Asset Value (NAV), is determined on a daily basis by calculating the aggregate market
+          valuation of all fund holdings divided by the total quantity of issued units.
+        </B>
+        <B label="Investment Returns & Capital Appreciation">
+          When underlying equities or debt instruments generate dividend income, interest
+          payments, or value appreciation, the fund's NAV correspondingly increases. Investors
+          achieve returns when the NAV exceeds their initial investment cost or upon distribution
+          of dividend income.
+        </B>
+      </ul>
+      <p className="mt-6 text-lg font-semibold text-foreground">Illustrative Scenario</p>
+      <P>Consider an art institution seeking to acquire a ₹10,000,000 artwork:</P>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Individual Acquisition">
+          The majority of individuals lack the financial capacity to allocate ₹10,000,000 for a
+          single art acquisition.
+        </B>
+        <B label="Mutual Fund Structure">
+          One thousand investors collectively contribute ₹10,000 each to finance the artwork
+          purchase. Each participant maintains a proportional ownership interest in the acquired
+          artwork.
+        </B>
+        <B label="Outcome">
+          Should the artwork appreciate to ₹15,000,000 in valuation, each investor's initial
+          ₹10,000 contribution appreciates to ₹15,000, representing a 50% return on investment
+          without requiring substantial initial capital.
+        </B>
+      </ul>
+    </>
+  );
+}
+
 function GenericContent({ lesson }: { lesson: LessonInfo }) {
   return (
     <>
@@ -155,7 +216,13 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <p className="mono-label text-primary">Summary</p>
             <p className="mt-2 text-lg leading-relaxed text-foreground">{lesson.summary}</p>
           </div>
-          {isSip ? <SipContent /> : <GenericContent lesson={lesson} />}
+          {isSip ? (
+            <SipContent />
+          ) : lesson.title === "How Mutual Funds Work" ? (
+            <MfContent />
+          ) : (
+            <GenericContent lesson={lesson} />
+          )}
         </div>
       </div>
     </div>
