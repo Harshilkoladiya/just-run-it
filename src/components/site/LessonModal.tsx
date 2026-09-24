@@ -155,7 +155,13 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <p className="mono-label text-primary">Summary</p>
             <p className="mt-2 text-lg leading-relaxed text-foreground">{lesson.summary}</p>
           </div>
-          {isSip ? <SipContent /> : <GenericContent lesson={lesson} />}
+          {isSip ? (
+            <SipContent />
+          ) : lesson.title === "How Mutual Funds Work" ? (
+            <MfContent />
+          ) : (
+            <GenericContent lesson={lesson} />
+          )}
         </div>
       </div>
     </div>
