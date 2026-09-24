@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { LessonModal } from "@/components/site/LessonModal";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import {
@@ -134,6 +135,8 @@ function LearnPage() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const [level, setLevel] = useState<(typeof levels)[number]>("All levels");
+  const [open, setOpen] = useState<Course | null>(null);
+  const closeModal = useCallback(() => setOpen(null), []);
 
   const filtered = useMemo(
     () =>
@@ -216,7 +219,13 @@ function LearnPage() {
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((c) => (
-              <Panel key={c.title} className="flex h-full flex-col">
+              <button
+                key={c.title}
+                type="button"
+                onClick={() => setOpen(c)}
+                className="h-full text-left transition-transform hover:-translate-y-0.5"
+              >
+              <Panel className="flex h-full flex-col transition-colors hover:border-primary">
                 <div className="flex items-center gap-2">
                   <span className="mono-label rounded-full border border-border px-3 py-1 text-muted-foreground">
                     {c.category}
@@ -229,6 +238,7 @@ function LearnPage() {
                 </p>
                 <p className="mono-label mt-6 text-muted-foreground">{c.minutes} min</p>
               </Panel>
+              </button>
             ))}
           </div>
         )}
@@ -275,6 +285,7 @@ function LearnPage() {
         </div>
         <Disclaimer className="mt-10" />
       </Section>
+      <LessonModal lesson={open} onClose={closeModal} />
     </>
   );
 }
