@@ -9,17 +9,6 @@ export type LessonInfo = {
   summary: string;
 };
 
-const sipRows = [
-  { month: "Jan", amount: 5000, nav: 50 },
-  { month: "Feb", amount: 5000, nav: 40 },
-  { month: "Mar", amount: 5000, nav: 25 },
-  { month: "Apr", amount: 5000, nav: 40 },
-  { month: "May", amount: 5000, nav: 50 },
-];
-
-const inr = (n: number) =>
-  "₹" + n.toLocaleString("en-IN", { maximumFractionDigits: 2 });
-
 function H({ children }: { children: ReactNode }) {
   return <h3 className="mt-10 text-xl text-foreground">{children}</h3>;
 }
@@ -27,78 +16,65 @@ function P({ children }: { children: ReactNode }) {
   return <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{children}</p>;
 }
 
-function SipContent() {
-  const totals = sipRows.reduce(
-    (a, r) => ({ amount: a.amount + r.amount, units: a.units + r.amount / r.nav }),
-    { amount: 0, units: 0 },
+function B({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <li>
+      <span className="mr-2 text-primary">·</span>
+      <span className="text-foreground">{label}:</span> {children}
+    </li>
   );
-  const avgCost = totals.amount / totals.units;
-  const avgNav = sipRows.reduce((a, r) => a + r.nav, 0) / sipRows.length;
+}
+
+function SipContent() {
   return (
     <>
       <H>What is a SIP?</H>
       <P>
-        A Systematic Investment Plan invests a fixed amount into a mutual fund at regular
-        intervals — usually monthly. Each instalment buys units at that day's NAV (Net Asset
-        Value), so you accumulate units steadily regardless of market mood.
+        A Systematic Investment Plan (SIP) represents an investment methodology that enables you
+        to allocate a predetermined sum of capital into a mutual fund scheme at consistent
+        intervals—typically on a monthly, quarterly, or weekly basis. Rather than committing a
+        substantial lump sum simultaneously, you progressively develop your investment portfolio
+        throughout an extended timeframe.
       </P>
-      <H>The mechanics</H>
-      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-        {[
-          "You pick a scheme, an amount (often from ₹500) and a debit date.",
-          "On each date, the amount is auto-debited from your bank account.",
-          "Units allotted = instalment ÷ NAV on that day.",
-          "Units accumulate; your value = total units × current NAV.",
-        ].map((t) => (
-          <li key={t}>
-            <span className="mr-2 text-primary">·</span>
-            {t}
-          </li>
-        ))}
+      <p className="mt-6 text-sm font-semibold text-foreground">Operational Mechanism</p>
+      <ul className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
+        <B label="Establishment & Automated Processing">
+          You select a mutual fund scheme, designate an investment amount (frequently commencing
+          at ₹500 or $10), and establish a recurring transaction date. On the designated date,
+          funds are automatically withdrawn from your bank account.
+        </B>
+        <B label="Unit Acquisition">
+          The fund manager deploys your capital to purchase "units" of the mutual fund at the
+          prevailing market valuation, referred to as the Net Asset Value (NAV).
+        </B>
+        <B label="Currency-Cost Averaging">
+          During periods of market decline, the NAV diminishes, enabling your consistent monthly
+          contribution to acquire a greater quantity of units. Conversely, during market
+          appreciation, the NAV increases, resulting in the acquisition of fewer units. This
+          systematic approach reduces your average acquisition cost per unit over time without
+          necessitating precise market timing.
+        </B>
+        <B label="Compounding Accumulation">
+          The earnings generated from your investments produce supplementary returns
+          progressively. As your cumulative invested capital expands, the compounding mechanism
+          accelerates wealth accumulation.
+        </B>
       </ul>
-      <H>Rupee-cost averaging</H>
+      <p className="mt-6 text-sm font-semibold text-foreground">Illustrative Scenario</p>
+      <P>Consider establishing a monthly SIP contribution of ₹2,000:</P>
+      <ul className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
+        <B label="Month 1">The fund NAV stands at ₹20 → You obtain 100 units (₹2,000 ÷ ₹20).</B>
+        <B label="Month 2">
+          Market conditions deteriorate and NAV declines to ₹10 → You obtain 200 units (₹2,000 ÷ ₹10).
+        </B>
+        <B label="Month 3">
+          Market conditions improve and NAV increases to ₹25 → You obtain 80 units (₹2,000 ÷ ₹25).
+        </B>
+      </ul>
       <P>
-        Because the amount is fixed, you automatically buy more units when prices are low and
-        fewer when prices are high. Over time, your average cost per unit tends to be lower than
-        the simple average of the NAVs you bought at.
-      </P>
-      <div className="mt-6 overflow-x-auto rounded-xl border border-border">
-        <table className="w-full text-sm">
-          <thead className="bg-surface/70">
-            <tr className="mono-label text-left text-muted-foreground">
-              <th className="px-4 py-3">Month</th>
-              <th className="px-4 py-3 text-right">Invested</th>
-              <th className="px-4 py-3 text-right">NAV</th>
-              <th className="px-4 py-3 text-right">Units bought</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sipRows.map((r) => (
-              <tr key={r.month} className="border-t border-border">
-                <td className="px-4 py-3">{r.month}</td>
-                <td className="px-4 py-3 text-right">{inr(r.amount)}</td>
-                <td className="px-4 py-3 text-right">{inr(r.nav)}</td>
-                <td className="px-4 py-3 text-right">{(r.amount / r.nav).toFixed(2)}</td>
-              </tr>
-            ))}
-            <tr className="border-t border-border bg-surface/50 font-medium">
-              <td className="px-4 py-3">Total</td>
-              <td className="px-4 py-3 text-right">{inr(totals.amount)}</td>
-              <td className="px-4 py-3 text-right">—</td>
-              <td className="px-4 py-3 text-right text-primary">{totals.units.toFixed(2)}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <P>
-        Average NAV: <span className="text-foreground">{inr(avgNav)}</span> · Your average cost
-        per unit: <span className="text-primary">{inr(avgCost)}</span>. The dip in March let
-        the same ₹5,000 buy twice as many units.
-      </P>
-      <H>Key takeaways</H>
-      <P>
-        Consistency matters more than timing. SIPs don't guarantee profits or protect against
-        losses in falling markets, but they remove the pressure of picking the "right" moment.
+        Throughout the 3-month period, your total capital invested amounts to ₹6,000, and you
+        have accumulated 380 units at an average acquisition cost of ₹15.78 per unit—illustrating
+        how market downturns facilitate the procurement of additional units at reduced valuations.
       </P>
     </>
   );
