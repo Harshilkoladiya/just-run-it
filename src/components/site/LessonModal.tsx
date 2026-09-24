@@ -10,10 +10,10 @@ export type LessonInfo = {
 };
 
 function H({ children }: { children: ReactNode }) {
-  return <h3 className="mt-10 text-2xl text-foreground">{children}</h3>;
+  return <h3 className="mt-10 text-3xl text-foreground">{children}</h3>;
 }
 function P({ children }: { children: ReactNode }) {
-  return <p className="mt-3 text-base leading-relaxed text-muted-foreground">{children}</p>;
+  return <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{children}</p>;
 }
 
 function B({ label, children }: { label: string; children: ReactNode }) {
@@ -36,8 +36,8 @@ function SipContent() {
         substantial lump sum simultaneously, you progressively develop your investment portfolio
         throughout an extended timeframe.
       </P>
-      <p className="mt-6 text-base font-semibold text-foreground">Operational Mechanism</p>
-      <ul className="mt-3 space-y-3 text-base leading-relaxed text-muted-foreground">
+      <p className="mt-6 text-lg font-semibold text-foreground">Operational Mechanism</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
         <B label="Establishment & Automated Processing">
           You select a mutual fund scheme, designate an investment amount (frequently commencing
           at ₹500 or $10), and establish a recurring transaction date. On the designated date,
@@ -60,9 +60,9 @@ function SipContent() {
           accelerates wealth accumulation.
         </B>
       </ul>
-      <p className="mt-6 text-base font-semibold text-foreground">Illustrative Scenario</p>
+      <p className="mt-6 text-lg font-semibold text-foreground">Illustrative Scenario</p>
       <P>Consider establishing a monthly SIP contribution of ₹2,000:</P>
-      <ul className="mt-3 space-y-3 text-base leading-relaxed text-muted-foreground">
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
         <B label="Month 1">The fund NAV stands at ₹20 → You obtain 100 units (₹2,000 ÷ ₹20).</B>
         <B label="Month 2">
           Market conditions deteriorate and NAV declines to ₹10 → You obtain 200 units (₹2,000 ÷ ₹10).
@@ -150,10 +150,10 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
           </button>
         </div>
         <div className="relative flex-1 overflow-y-auto px-6 py-8 sm:px-10">
-          <h2 className="text-3xl leading-tight sm:text-4xl">{title}</h2>
+          <h2 className="text-4xl leading-tight sm:text-5xl">{title}</h2>
           <div className="mt-6 rounded-xl border border-primary/40 bg-primary/10 p-5">
             <p className="mono-label text-primary">Summary</p>
-            <p className="mt-2 text-base leading-relaxed text-foreground">{lesson.summary}</p>
+            <p className="mt-2 text-lg leading-relaxed text-foreground">{lesson.summary}</p>
           </div>
           {isSip ? <SipContent /> : <GenericContent lesson={lesson} />}
         </div>
