@@ -141,6 +141,79 @@ function MfContent() {
   );
 }
 
+function RealEstateContent() {
+  return (
+    <>
+      <H>What is Real Estate?</H>
+      <P>
+        Real Estate encompasses tangible property comprising land and any permanent improvements
+        or natural resources affixed to it, including structures such as buildings, residences,
+        fencing, infrastructure, and water features.
+      </P>
+      <P>
+        This asset class represents one of the most established investment categories, typically
+        classified into four principal segments: Residential properties (dwellings, multi-unit
+        complexes), Commercial properties (office buildings, retail establishments), Industrial
+        properties (manufacturing facilities, storage centers), and Land assets (vacant parcels).
+      </P>
+      <p className="mt-6 text-lg font-semibold text-foreground">Operational Framework</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Property Acquisition">
+          Investors procure physical real estate through direct capital investment, institutional
+          financing mechanisms (mortgages), or hybrid approaches combining both methods.
+        </B>
+        <B label="Value Generation">
+          Real estate produces financial returns through two fundamental channels:
+        </B>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Rental Income (Yield):</span> Leasing property to
+          occupants generates consistent, predictable monthly revenue streams.
+        </li>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Capital Appreciation:</span> Property and land values
+          typically appreciate over extended periods due to macroeconomic factors including
+          inflation, demographic expansion, market scarcity, and regional infrastructure
+          advancement.
+        </li>
+        <B label="Property Management">
+          Asset holders must maintain their investment by addressing property taxation, insurance
+          obligations, maintenance requirements, and tenant administration to preserve and enhance
+          market valuation.
+        </B>
+        <B label="Liquidation / Exit">
+          Investors realize capital gains upon selling the property at a price exceeding aggregate
+          acquisition and maintenance expenditures.
+        </B>
+      </ul>
+      <p className="mt-6 text-lg font-semibold text-foreground">Illustrative Scenario</p>
+      <P>
+        Consider acquiring a two-bedroom apartment in an emerging suburban area for ₹50,000,000:
+      </P>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Down Payment & Financing">
+          An initial 20% payment (₹10,000,000) is made directly, with the remaining 80% financed
+          through mortgage arrangements.
+        </B>
+        <B label="Rental Income">
+          The apartment is leased to residents at ₹25,000 monthly, with rental proceeds applied
+          toward offsetting periodic loan installments.
+        </B>
+        <B label="Infrastructure Growth">
+          Within a five-year period, metropolitan transit expansion and commercial development
+          occur in proximity to the property.
+        </B>
+        <B label="Outcome">
+          Enhanced regional demand elevates the apartment's valuation to ₹70,000,000. The proprietor
+          may either maintain rental collection with anticipated increases or liquidate the asset
+          to realize a ₹20,000,000 capital gain.
+        </B>
+      </ul>
+    </>
+  );
+}
+
 function GenericContent({ lesson }: { lesson: LessonInfo }) {
   return (
     <>
@@ -220,6 +293,8 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <SipContent />
           ) : lesson.title === "How Mutual Funds Work" ? (
             <MfContent />
+          ) : lesson.title === "Real Estate Fundamentals" ? (
+            <RealEstateContent />
           ) : (
             <GenericContent lesson={lesson} />
           )}
