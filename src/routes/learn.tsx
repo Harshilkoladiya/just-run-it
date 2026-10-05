@@ -67,11 +67,11 @@ const courses: Course[] = [
     summary: "Residential vs commercial property, REITs, transaction costs and what actually drives long-term property value.",
   },
   {
-    title: "Build an Emergency Fund",
+    title: "What is an IPO?",
     category: "Personal Finance",
     level: "Beginner",
     minutes: 15,
-    summary: "Sizing a safety buffer, where to park it, and how to rebuild it after you use it.",
+    summary: "Initial public offerings, underwriters, regulatory filings, subscription phases, and secondary market listing mechanics.",
   },
   {
     title: "Understanding Risk",
@@ -81,18 +81,18 @@ const courses: Course[] = [
     summary: "Volatility, drawdowns, sequence risk and behaviour — the difference between risk and uncertainty.",
   },
   {
-    title: "Index Funds & Diversification",
+    title: "What is a Stock Exchange?",
     category: "Mutual Funds",
     level: "Intermediate",
     minutes: 28,
-    summary: "Why broad exposure beats concentration for most beginners, and how expense ratios compound against you.",
+    summary: "Primary vs secondary markets, order matching, price discovery dynamics, and how equity shares drive wealth creation.",
   },
   {
-    title: "Rental Yield & Cash Flow",
+    title: "Renting vs. Owning",
     category: "Real Estate",
     level: "Intermediate",
     minutes: 32,
-    summary: "Gross vs net yield, vacancy assumptions, maintenance and how to sanity-check a property's numbers.",
+    summary: "Comparative analysis of leasehold and freehold properties, equity building, mobility, maintenance, and long-term capital tradeoffs.",
   },
   {
     title: "Debt Payoff Strategies",
