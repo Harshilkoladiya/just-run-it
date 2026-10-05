@@ -545,6 +545,8 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <IpoContent />
           ) : lesson.title === "Index Funds & Diversification" ? (
             <StockExchangeContent />
+          ) : lesson.title === "Rental Yield & Cash Flow" ? (
+            <RentingVsOwningContent />
           ) : (
             <GenericContent lesson={lesson} />
           )}
