@@ -541,11 +541,12 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <MfContent />
           ) : lesson.title === "Real Estate Fundamentals" ? (
             <RealEstateContent />
-          ) : lesson.title === "Build an Emergency Fund" ? (
+          ) : lesson.title === "Build an Emergency Fund" || lesson.title === "What is an IPO?" ? (
             <IpoContent />
-          ) : lesson.title === "Index Funds & Diversification" ? (
+          ) : lesson.title === "Index Funds & Diversification" ||
+            lesson.title === "What is a Stock Exchange?" ? (
             <StockExchangeContent />
-          ) : lesson.title === "Rental Yield & Cash Flow" ? (
+          ) : lesson.title === "Rental Yield & Cash Flow" || lesson.title === "Renting vs. Owning" ? (
             <RentingVsOwningContent />
           ) : (
             <GenericContent lesson={lesson} />
