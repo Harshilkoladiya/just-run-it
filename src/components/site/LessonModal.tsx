@@ -214,6 +214,82 @@ function RealEstateContent() {
   );
 }
 
+function IpoContent() {
+  return (
+    <>
+      <H>What is an IPO?</H>
+      <P>
+        An Initial Public Offering (IPO), colloquially referred to as "going public," constitutes
+        the procedural mechanism through which a privately-held enterprise makes its equity
+        securities available to the general public for the inaugural time via a stock exchange.
+      </P>
+      <P>
+        Prior to an IPO, organizational ownership remains concentrated among a restricted cohort
+        of private proprietors, initial investors, and venture capital entities. An IPO
+        democratizes ownership accessibility to encompass any individual or institutional
+        investor.
+      </P>
+      <p className="mt-6 text-lg font-semibold text-foreground">Operational Framework</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Capital Requirements for Growth">
+          An expanding private enterprise necessitates substantial financial resources to reduce
+          outstanding debt, finance research initiatives, scale operational capacity, or
+          facilitate exit opportunities for early-stage investors.
+        </B>
+        <B label="Engagement of Investment Banking Institutions">
+          The enterprise engages investment banking firms (underwriters) to facilitate regulatory
+          documentation, conduct financial analysis, and establish an initial valuation range for
+          equity securities.
+        </B>
+        <B label="Regulatory Compliance & Prospectus Submission">
+          The enterprise submits a comprehensive prospectus (such as a DRHP) to financial market
+          authorities (including SEBI or the SEC) encompassing financial statements, risk
+          assessments, and capital allocation strategies.
+        </B>
+        <B label="Public Subscription Phase">
+          The IPO becomes accessible to the public for a designated period. Both retail and
+          institutional investors present bids to acquire shares at the predetermined issue price
+          or within the established price band.
+        </B>
+        <B label="Equity Distribution & Market Commencement"></B>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Oversubscription & Allocation:</span> When demand
+          surpasses available equity (oversubscription), allocation occurs via lottery mechanisms
+          or proportional distribution methodologies.
+        </li>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Secondary Market Trading:</span> Upon listing
+          commencement, the security commences trading on the secondary market, with valuation
+          determined by prevailing supply and demand dynamics.
+        </li>
+      </ul>
+      <p className="mt-6 text-lg font-semibold text-foreground">Illustrative Case Study</p>
+      <P>Consider a hypothetical technology enterprise designated CloudTech:</P>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="The Private Ownership Phase">
+          CloudTech remains wholly owned by its two founding principals and one venture capital
+          investment firm.
+        </B>
+        <B label="The IPO Strategy">
+          To finance the construction of supplementary data infrastructure, CloudTech determines
+          to procure ₹500 crore through the issuance of 10 million equity shares at ₹500 per
+          share throughout a three-day public subscription interval.
+        </B>
+        <B label="The Investment Application">
+          An investor applies for one lot comprising 30 shares valued at ₹15,000.
+        </B>
+        <B label="The Market Listing">
+          The IPO experiences substantial investor demand and receives successful allocation. Upon
+          listing commencement, robust market sentiment elevates CloudTech's equity valuation to
+          ₹650 per share upon initiation of secondary market trading.
+        </B>
+      </ul>
+    </>
+  );
+}
+
 function GenericContent({ lesson }: { lesson: LessonInfo }) {
   return (
     <>
@@ -295,6 +371,8 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <MfContent />
           ) : lesson.title === "Real Estate Fundamentals" ? (
             <RealEstateContent />
+          ) : lesson.title === "Build an Emergency Fund" ? (
+            <IpoContent />
           ) : (
             <GenericContent lesson={lesson} />
           )}
