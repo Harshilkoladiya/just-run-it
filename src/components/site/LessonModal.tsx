@@ -290,6 +290,96 @@ function IpoContent() {
   );
 }
 
+function StockExchangeContent() {
+  return (
+    <>
+      <H>What is a Stock Exchange?</H>
+      <P>
+        The Stock Market constitutes a systematized marketplace—functioning through digital
+        infrastructure and formal exchanges—wherein participants engage in the transaction of
+        equity shares issued by publicly traded corporations.
+      </P>
+      <P>
+        Upon acquiring a stock (alternatively termed a share or equity instrument), one obtains a
+        fractional proprietary interest in the respective enterprise. Should the organization
+        experience expansion and augmented profitability, the corresponding valuation of one's
+        ownership position appreciates; conversely, if the business encounters adversity, the
+        equity value may depreciate.
+      </P>
+      <p className="mt-6 text-lg font-semibold text-foreground">Operational Mechanisms</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Initial Public Offering (IPO)">
+          A privately held enterprise determines to procure capital for organizational expansion.
+          It introduces newly issued shares to the general public for the inaugural occasion
+          through an IPO mechanism on an established stock exchange (including the NSE/BSE or
+          NYSE/Nasdaq).
+        </B>
+        <B label="Secondary Market Trading">
+          Following the IPO, these equity instruments are subsequently exchanged freely among
+          individual and institutional market participants. The exchange mechanism facilitates the
+          alignment of purchasers prepared to remit a designated price (bid) with vendors prepared
+          to divest at a specified price (ask).
+        </B>
+        <B label="Price Discovery Mechanism (Supply and Demand Dynamics)">
+          Share valuations experience continuous fluctuation throughout designated trading
+          intervals contingent upon supply and demand equilibrium:
+        </B>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Preponderance of purchasers relative to vendors:</span>{" "}
+          Valuation elevation.
+        </li>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Preponderance of vendors relative to purchasers:</span>{" "}
+          Valuation reduction.
+        </li>
+        <B label="Price Determinants">
+          Investor demand derives from corporate financial disclosures, macroeconomic conditions,
+          monetary policy rates, sectoral expansion trajectories, and prevailing market
+          psychology.
+        </B>
+        <B label="Revenue Generation Mechanisms">
+          Market participants accumulate financial returns through two principal methodologies:
+        </B>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Capital Appreciation:</span> Liquidating an equity
+          position at a valuation exceeding the acquisition cost.
+        </li>
+        <li className="ml-6">
+          <span className="mr-2 text-primary">·</span>
+          <span className="text-foreground">Dividend Distributions:</span> Periodic monetary
+          disbursements allocated by corporations from retained earnings to equity proprietors.
+        </li>
+      </ul>
+      <p className="mt-6 text-lg font-semibold text-foreground">Illustrative Case Study</p>
+      <P>Consider a regional bakery enterprise designated FreshBakes:</P>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Capital Requirements">
+          FreshBakes necessitates ₹1,00,000 to establish 5 supplementary operational facilities,
+          consequently subdividing the enterprise into 1,000 equity instruments valued at ₹100 per
+          unit.
+        </B>
+        <B label="Equity Acquisition">
+          An investor procures 10 shares for ₹1,000, thereby establishing a 1% proprietary stake
+          in the organization.
+        </B>
+        <B label="Organizational Expansion">
+          Throughout a twenty-four month period, the newly established facilities demonstrate
+          operational success, and FreshBakes experiences a doubling of aggregate profitability.
+          Market participants subsequently reassess individual share valuation at ₹250.
+        </B>
+        <B label="Outcome">
+          The investor's 10 equity instruments attain a cumulative valuation of ₹2,500
+          (10 × ₹250), realizing a capital gain of ₹1,500 alongside any dividend distributions
+          disbursed during the operational period.
+        </B>
+      </ul>
+    </>
+  );
+}
+
 function GenericContent({ lesson }: { lesson: LessonInfo }) {
   return (
     <>
@@ -373,6 +463,8 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <RealEstateContent />
           ) : lesson.title === "Build an Emergency Fund" ? (
             <IpoContent />
+          ) : lesson.title === "Index Funds & Diversification" ? (
+            <StockExchangeContent />
           ) : (
             <GenericContent lesson={lesson} />
           )}
