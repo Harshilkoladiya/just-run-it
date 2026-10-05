@@ -380,6 +380,86 @@ function StockExchangeContent() {
   );
 }
 
+function RentingVsOwningContent() {
+  return (
+    <>
+      <H>What is Renting vs. Owning?</H>
+      <P>
+        Within the real estate sector, leasehold properties (rental/investment-based) and freehold
+        properties (owner-occupied/self-owned) constitute two fundamentally distinct methodologies
+        for utilizing or generating returns from physical real estate assets.
+      </P>
+      <P>
+        The fundamental distinction centers on the dichotomy between ownership and utilization:
+        leasing arrangements confer temporary occupancy privileges without conferring ownership
+        rights, whereas property ownership grants complete legal title and accumulated equity in
+        the underlying asset.
+      </P>
+      <p className="mt-6 text-lg font-semibold text-foreground">Operational Mechanisms</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Leasehold Properties">
+          A tenant executes a lease contract with a property owner, remitting consistent monthly
+          rental payments in return for occupancy entitlements. The tenant accumulates no equity,
+          incurs no exposure to market depreciation, and bears no obligation for substantial
+          structural maintenance.
+        </B>
+        <B label="Freehold Properties">
+          The proprietor obtains legal ownership of the property (through outright acquisition or
+          mortgage financing). The owner maintains equity in the asset, realizes direct benefits
+          from appreciation in property valuation, yet assumes responsibility for property
+          taxation, ongoing maintenance obligations, and market-related risks.
+        </B>
+      </ul>
+      <p className="mt-6 text-lg font-semibold text-foreground">Principal Distinctions</p>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Economic Classification">
+          Leasing constitutes a recurring monthly expenditure, whereas property ownership
+          functions as an equity-accumulating investment vehicle.
+        </B>
+        <B label="Initial Investment Requirements">
+          Leasing necessitates minimal upfront capital (security deposit and initial monthly
+          rent), while property ownership demands substantial initial expenditures including down
+          payments, transfer taxes, and administrative registration charges.
+        </B>
+        <B label="Relocation Capacity">
+          Leasing provides substantial flexibility for residential mobility upon lease
+          termination, whereas property ownership complicates relocation due to the extended
+          timeframes required for property disposition or tenant placement.
+        </B>
+        <B label="Capital Appreciation">
+          Leasing generates no financial gains for the occupant, whereas property ownership
+          facilitates wealth accumulation through sustained property value appreciation.
+        </B>
+        <B label="Structural Modifications">
+          Leasing arrangements impose stringent limitations on property alterations, whereas
+          ownership permits unrestricted authority to undertake renovations or comprehensive
+          redesign initiatives.
+        </B>
+      </ul>
+      <p className="mt-6 text-lg font-semibold text-foreground">Illustrative Scenario</p>
+      <P>
+        Consider two colleagues, Rohan and Priya, occupying comparable residential units valued at
+        ₹50,000,000:
+      </P>
+      <ul className="mt-3 space-y-3 text-lg leading-relaxed text-muted-foreground">
+        <B label="Rohan's Leasehold Arrangement">
+          He remits ₹25,000 monthly to the property proprietor. Should his professional obligations
+          necessitate relocation to an alternative metropolitan area within the subsequent year, he
+          provides one month's notice and transitions without encumbrance regarding property
+          disposition. Conversely, following a five-year occupancy period, his cumulative rental
+          disbursements exceed ₹15,00,000 with zero corresponding equity accumulation.
+        </B>
+        <B label="Priya's Freehold Ownership">
+          She secures a mortgage, providing a ₹10,000,000 down payment alongside monthly EMI
+          payments. Over the same five-year period, while assuming maintenance and taxation
+          liabilities, every payment progressively increases her equity ownership in the
+          property—benefiting directly from any regional property appreciation.
+        </B>
+      </ul>
+    </>
+  );
+}
+
 function GenericContent({ lesson }: { lesson: LessonInfo }) {
   return (
     <>
@@ -465,6 +545,8 @@ export function LessonModal({ lesson, onClose }: { lesson: LessonInfo | null; on
             <IpoContent />
           ) : lesson.title === "Index Funds & Diversification" ? (
             <StockExchangeContent />
+          ) : lesson.title === "Rental Yield & Cash Flow" ? (
+            <RentingVsOwningContent />
           ) : (
             <GenericContent lesson={lesson} />
           )}
