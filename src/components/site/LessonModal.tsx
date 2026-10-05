@@ -16,7 +16,7 @@ function P({ children }: { children: ReactNode }) {
   return <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{children}</p>;
 }
 
-function B({ label, children }: { label: string; children: ReactNode }) {
+function B({ label, children }: { label: string; children?: ReactNode }) {
   return (
     <li>
       <span className="mr-2 text-primary">·</span>
